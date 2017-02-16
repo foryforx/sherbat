@@ -1,7 +1,8 @@
 .classpath*
 .project*
-.settings*
+.settings/*
 logs/*
+target/*
 target*
 test-output*
 
