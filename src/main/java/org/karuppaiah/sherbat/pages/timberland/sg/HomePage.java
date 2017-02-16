@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 /**
@@ -26,9 +27,12 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//*[@id=\"products-container\"]/div[1]/div/div[6]/li/div/div[1]")
 	WebElement recommendedProduct1;
 	
-	public HomePage() {
+	public HomePage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
+		super(driver);
 		title = "Timberland Singapore - Official Online Store";
+		this.setDriver(driver);
+	    PageFactory.initElements(driver, this);
 	}
 	
 	public String getTitleString(WebDriver driver){

@@ -38,7 +38,7 @@ public class NewsletterSignup extends ChromeBaseTestcase {
 		homePage.getGenderMale().click();
 		homePage.getNewsletterButton().click();	
 		homePage.WaitToVerifyText(this.getDriver(), homePage.getNewsletterMessageFailure(), "There was a problem with the subscription: This email address already exist.");
-		homePage.captureScreenShot(this.getDriver());
+		homePage.captureScreenShot();
 		
 	}
 	

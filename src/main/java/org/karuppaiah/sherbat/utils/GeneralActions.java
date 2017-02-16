@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
+import org.karuppaiah.sherbat.exceptions.ElementNotEditable;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +27,7 @@ public class GeneralActions {
 	//private static PropertyReader pr = new PropertyReader(Constants.sPropertiesPath+Constants.sConfigFileName);
 	public static Logger log4jlogger =Logger.getLogger("devpinoyLogger");
 	public static String fsep=System.getProperty("file.separator");
-	public static Xlfile_Reader excel=new Xlfile_Reader(System.getProperty("user.dir")+fsep+"src"+fsep+"test"+fsep+"resources"+fsep+"testdata"+fsep+"InputData.xlsx");
+	//public static Xlfile_Reader excel=new Xlfile_Reader(System.getProperty("user.dir")+fsep+"src"+fsep+"test"+fsep+"resources"+fsep+"testdata"+fsep+"InputData.xlsx");
 	public static WebDriver driver;
 	
 	public static String fileSeperator = System.getProperty("file.separator");
@@ -78,7 +79,7 @@ public class GeneralActions {
 	/**
 	 * @return Returns true if element is enabled, else return false. 
 	 */
-	public boolean isElementEnabled(WebElement element) throws com.specomm.uniqlo.common.exception.ElementNotEditable{
+	public boolean isElementEnabled(WebElement element) throws ElementNotEditable{
 		return element.isEnabled();
 	}
 	
@@ -131,21 +132,9 @@ public class GeneralActions {
 	
 	//Reading the data from the excel file
 		public static Object[][] getData(String sheetName){
-			int rows=excel.getRowCount(sheetName)-1;
-			if(rows<=0){
-				Object data[][]=new Object[1][0];
-				return data;
-			}
-//			String sheetName="LoginTest";
-			rows =excel.getRowCount(sheetName);//Get Row Count
-			int cols=excel.getColumnCount(sheetName);//Get Col Count
-			Object data[][]=new Object[rows-1][cols];//-1
-			for (int rowNum=2;rowNum<=rows;rowNum++){//2
-				for(int colNum=0;colNum<cols;colNum++){
-					data[rowNum-2][colNum]=excel.getCellData(sheetName, colNum, rowNum);
-					
-				}
-			}
+			
+			Object data[][]=new Object[1][1];//-1
+			
 			return data;
 		}
 

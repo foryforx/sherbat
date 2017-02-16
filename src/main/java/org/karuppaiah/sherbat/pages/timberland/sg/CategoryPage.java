@@ -5,8 +5,7 @@ package org.karuppaiah.sherbat.pages.timberland.sg;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 /**
@@ -21,9 +20,13 @@ public class CategoryPage extends BasePage {
 	String title;
 
 	
-	public CategoryPage(String catName) {
-		// TODO Auto-generated constructor stub
+	public CategoryPage(String catName,WebDriver driver) {
+		super(driver);
 		title = catName + " | Timberland Singapore";
+		this.setDriver(driver);
+	    PageFactory.initElements(driver, this);
+		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public String getTitleString(WebDriver driver){

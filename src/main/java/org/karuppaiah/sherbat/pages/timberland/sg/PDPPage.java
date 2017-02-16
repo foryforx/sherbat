@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 /**
  * @author Karuppaiah
@@ -19,8 +20,12 @@ public class PDPPage extends BasePage {
 	 */
 	@FindBy(id="colorNmId")
 	WebElement colorName;
-	public PDPPage() {
+	public PDPPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
+		super(driver);
+		
+		this.setDriver(driver);
+	    PageFactory.initElements(driver, this);
 	}
 	
 	public void selectColor(WebDriver driver, String colorName){

@@ -89,7 +89,7 @@ public class ReusableActions {
 			}
 		}
 		
-		public static void mouseOverAndClick(WebDriver driver,WebElement mouseOverWE ,WebElement clickWE)
+		public static void mouseHoverAndClick(WebDriver driver,WebElement mouseOverWE ,WebElement clickWE)
 		 {
 			 try
 				{
@@ -401,16 +401,12 @@ public class ReusableActions {
 			try
 			{
 			
-			
-			Actions builder = new Actions(driver);
-			
-			builder.moveToElement(element).build().perform();
-			
-			log4jlogger.debug("Success : Mouse Over");
-	        Reporter.log("Success : Mouse Over");
-			
-			
-			
+				Actions builder = new Actions(driver);
+				
+				builder.moveToElement(element).build().perform();
+				
+				log4jlogger.debug("Success : Mouse Over");
+		        Reporter.log("Success : Mouse Over");
 			
 			}
 			catch(Throwable thr)
